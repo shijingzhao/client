@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css" />
+</head>
+<body>
+    <!-- 头部开始 -->
+    <div class="header layui-clear">
+        <!-- logo -->
+        <div class="logo header_height white_font">
+            后台系统
+        </div>
+
+        <!-- 模块 --> 
+        <div class="module header_height">
+            <ul class="module_ul">
+                <li><a href="#" class="white_font">首页</a></li>
+                <li><a href="#" class="white_font">模块一</a></li>
+                <li><a href="#" class="white_font">模块二</a></li>
+                <li><a href="#" class="white_font">模块三</a></li>
+                <li><a href="#" class="white_font">模块四</a></li>
+            </ul>
+        </div>
+
+        <!-- 个人信息 -->
+        <!-- <div class="user_info header_height white_font">
+            <img src="static/images/avatar.jpg" class="avatar" />
+            <p>敬朝</p>
+        </div> -->
+        
+    </div>
+
+    <div class="login_main layui-clear">
+        <!-- 登录Login_form -->
+        <div class="left">
+            <div class="form-title">
+                登录
+            </div>
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="text" name="account" required lay-verify="required|phone" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" required lay-verify="required|pass" placeholder="请填写6到12位密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formButton">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- 右侧图 -->
+        <div class="right">
+            
+        </div>
+    </div>
+
+    <script src="static/layui/layui.js"></script>
+    <script type="text/javascript">
+        layui.config({
+            base : 'static/layui/mods/'
+        }).extend({});
+
+        layui.use(['form', 'ajax', 'box'], function() {
+            var ajax  = layui.ajax
+            ,box      = layui.box
+            ,form    = layui.form;
+
+            // 自定义验证规则
+            form.verify({
+                pass: [/(.){6,12}$/, '密码必须6到12位']
+            });
+
+            if (JSON.stringify(layui.data('user_info')) != '{}') {
+                box.box('已登录,正在跳转', function() {
+                    location.href = 'layout.html';
+                });
+            }
+
+            // 监听提交
+            form.on('submit(formButton)', function(data) {
+                ajax.ajax(
+                    'http://lingling.com/backstage/headhunter/login', data.field, {},
+                    function(res) {
+                        if (res.code == 0) {
+                            if (res.data) {
+                                // 保存用户信息
+                                layui.data('user_info', {
+                                    key     : "name", 
+                                    value   : res.data.name,
+                                });
+                                layui.data('user_info', {
+                                    key     : "gender",
+                                    value   : res.data.gender
+                                });
+                            }
+                            box.box(res.message, function() {
+                                location.href = 'layout.html';
+                            });
+                        }
+                        else {
+                            box.box(res.message, function() {
+                                location.href = 'layout.html';
+                            });
+                        }
+                    }
+                );
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>后台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/global.css" />
+</head>
+<body class="layui-layout-body">
+
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部开始 -->
+        <div class="layui-header">
+            <!-- Logo -->
+            <div class="layui-logo">
+                后台管理系统
+            </div>
+
+            <!-- 导航 -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">控制台</a></li>
+                <li class="layui-nav-item"><a href="">控制台1</a></li>
+                <li class="layui-nav-item"><a href="">控制台2</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">邮件</a></dd>
+                        <dd><a href="">消息</a></dd>
+                        <dd><a href="">授权</a></dd>
+                    </dl>
+                </li>
+            </ul>
+
+            <!-- 个人信息 -->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="static/images/avatar.jpg" class="layui-nav-img">
+                        共饮
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a onclick="logout()">退了</a></li>
+            </ul>
+        </div>
+
+        <!-- 左侧菜单 -->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;">项目管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="html/project/list.html" target="common">项目列表</a></dd>
+                            <dd><a href="" target="common">添加项目</a></dd>
+                            <dd><a href="" target="common">项目修改</a></dd>
+                            <dd><a href="" target="common">项目查看</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">公司管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="html/project/list.html" target="common">公司列表</a></dd>
+                            <dd><a href="" target="common">添加项目</a></dd>
+                            <dd><a href="" target="common">项目修改</a></dd>
+                            <dd><a href="" target="common">项目查看</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">猎头管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="html/project/list.html" target="common">猎头列表</a></dd>
+                            <dd><a href="" target="common">添加项目</a></dd>
+                            <dd><a href="" target="common">项目修改</a></dd>
+                            <dd><a href="" target="common">项目查看</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统设置</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="" target="common">添加项目</a></dd>
+                            <dd><a href="" target="common">项目修改</a></dd>
+                            <dd><a href="" target="common">项目查看</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 主体区域 -->
+        <div class="layui-body" style="margin: 10px;">
+            <iframe name="common" style="width: 100%; height: 100%; border: none;" src="index.html"></iframe>
+        </div>
+
+        <!-- 底部 -->
+        <div class="layui-footer">
+            &copy; 2018 - <a href="https://github.com/shijingzhao/api">shijingzhao@airdoc.com</a>
+        </div>
+    </div>
+    
+    <script src="static/layui/layui.js"></script>
+    <script type="text/javascript">
+        layui.config({
+            base : 'static/layui/mods/'
+        }).extend({});
+
+        layui.use(['element', 'table', 'ajax', 'box'], function() {
+            var ajax  = layui.ajax
+            ,box      = layui.box
+            ,table    = layui.table
+            ,element  = layui.element;
+
+            if (JSON.stringify(layui.data('user_info')) == '{}') {
+                box.box('请您登录', function() {
+                    location.href = 'layout.html';
+                });
+            }
+
+            function logout() {
+                layui.data('user_info', null);
+                box.box('成功退出', function() {
+                    location.href = 'layout.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
