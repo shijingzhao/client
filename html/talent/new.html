@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>添加人才</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="http://lingling.com/static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="http://lingling.com/static/css/global.css" />
+</head>
+<body>
+    
+    <form class="layui-form" lay-filter="newTalentFrom">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    姓名 
+                </label>
+                <div class="layui-input-inline">
+                    <input id="nameDate" class="layui-input" type="text" name="name" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    性别
+                </label>
+                <div class="layui-input-inline">
+                    <!-- <input id="genderDate" class="layui-input" type="text" name="gender" autocomplete="off" placeholder="请输入" lay-verify="required"> -->
+                    <select id="genderDate" name="gender">
+                        <option value="1"> 男 </option>
+                        <option value="2"> 女 </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    手机
+                </label>
+                <div class="layui-input-inline">
+                    <input id="phoneDate" class="layui-input" type="text" name="phone" autocomplete="off" placeholder="请选择" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    邮箱
+                </label>
+                <div class="layui-input-inline">
+                    <input id="mailboxDate" class="layui-input" type="text" name="mailbox" autocomplete="off" placeholder="请选择" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    地址
+                </label>
+                <div class="layui-input-inline">
+                    <input id="addressDate" class="layui-input" type="text" name="address" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    期望职位
+                </label>
+                <div class="layui-input-inline">
+                    <input id="dreamPosition" class="layui-input" type="text" name="dream_position" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    期望薪资
+                </label>
+                <div class="layui-input-inline">
+                    <input id="expectedSalary" class="layui-input" type="text" name="expected_salary" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    期望城市
+                </label>
+                <div class="layui-input-inline">
+                    <input id="expectedCity" class="layui-input" type="text" name="expected_city" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    学历
+                </label>
+                <div class="layui-input-inline">
+                    <!-- <input id="education" class="layui-input" type="text" name="education" autocomplete="off" placeholder="请输入" lay-verify="required"> -->
+                    <select id="education" name="education">
+                        <option value="1"> 大专 </option>
+                        <option value="2"> 本科 </option>
+                        <option value="3"> 硕士 </option>
+                        <option value="4"> 博士 </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    工作年限
+                </label>
+                <div class="layui-input-inline">
+                    <!-- <input id="workingYears" class="layui-input" type="text" name="working_years" autocomplete="off" placeholder="请输入" lay-verify="required"> -->
+                    <select id="workingYears" name="working_years">
+                        <option value="1"> 应届毕业生 </option>
+                        <option value="2"> 1-3年 </option>
+                        <option value="3"> 3-5年 </option>
+                        <option value="4"> 5-10年 </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    工作经历
+                </label>
+                <div class="layui-input-inline">
+                    <input id="workExperience" class="layui-input" type="text" name="work_experience" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    项目经历
+                </label>
+                <div class="layui-input-inline">
+                    <input id="projectExperience" class="layui-input" type="text" name="project_experience" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    技能清单
+                </label>
+                <div class="layui-input-inline">
+                    <textarea id="skillList" class="layui-textarea" name="skill_list" placeholder="请输入内容"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-imput-block">
+                <button class="layui-btn" lay-submit="" lay-filter="submitDemo">立即提交</button>
+                <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+            </div>
+        </div>
+    </form>
+
+    <script src="../../static/layui/layui.js"></script>
+    <script type="text/javascript">
+        layui.config({
+            base : '../../static/layui/mods/'
+        }).extend({});
+
+        layui.use(['form', 'layedit', 'laydate', 'ajax' , 'box'], function() {
+            var form = layui.form
+            ,layer   = layui.layer
+            ,layedit = layui.layedit
+            ,ajax    = layui.ajax
+            ,box     = layui.box;
+
+            // 自定义验证规则
+            form.verify({
+
+            });
+
+            form.val("newTalentFrom", {
+            	"name":"石敬朝","gender":"1","phone":"18632620921","mailbox":"18632620921@163.com","address":"北京 海淀","dream_position":"PHP开发","expected_salary":"12","expected_city":"北京","education":"2","working_years":"1","work_experience":"Airdoc","project_experience":"持续监控","skill_list":"1、出色的分析问题、解决问题能力，总是能从纷繁复杂的数据中一眼看出问题本质;\n2、出色的机器学习（deep learning）、NLP和数据挖掘基础，并能很好地建模应用于解决搜索问题;\n3、扎实的代码能力，扎实的数据结构和基础算法功底;\n4、熟悉linux开发环境，熟练使用C++和python语言;\n5、有主流大规模搜索引擎算法优化经验者加分;\n6、如果你绝顶聪明，总是能7天深入一个全新的领域成为专家，则可以忽略以上所有要求."
+            });
+
+            // 监听指定开关
+            form.on('submit(submitDemo)', function(data) {
+                console.log(data.field);
+                ajax.ajax(
+                    'http://lingling.com/backstage/talent/newtalent', data.field, {},
+                    function(res) {
+                        if (res.code == 0) {
+                            // layer.msg('添加成功');
+                            box.box(res.msg, function() {
+                                location.href = 'list.html';
+                            });
+                        }
+                        else {
+                            console.log(res);
+                        }
+                    }
+                );
+                return false;
+            })
+        });
+    </script>
+</body>
+</html>

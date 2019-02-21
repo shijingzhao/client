@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>项目列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="http://lingling.com/static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="http://lingling.com/static/css/global.css" />
+</head>
+<body>
+    
+    <form class="layui-form" lay-filter="newProjectFrom">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    编号
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="number" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    项目名
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="name" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    开始日期
+                </label>
+                <div class="layui-input-inline">
+                    <input id="startDate" class="layui-input" type="text" name="start_date" autocomplete="off" placeholder="请选择" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    计划完成日期
+                </label>
+                <div class="layui-input-inline">
+                    <input id="planDate" class="layui-input" type="text" name="plan_date" autocomplete="off" placeholder="请选择" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    项目状态
+                </label>
+                <div class="layui-input-inline">
+                    <!-- <input class="layui-input" type="text" name="project_status" autocomplete="off" placeholder="请输入" lay-verify="required"> -->
+                    <select name="project_status">
+                        <option value="0"> 进行中 </option>
+                        <option value="1"> 完成 </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    项目级别
+                </label>
+                <div class="layui-input-inline">
+                    <!-- <input class="layui-input" type="text" name="priority" autocomplete="off" placeholder="请输入" lay-verify="required"> -->
+                    <select name="priority">
+                        <option value="0"> 正常 </option>
+                        <option value="1"> 紧急 </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    客户名称
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="client_name" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <!-- <label class="layui-form-label">
+                    收款状态
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="collection_status" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div> -->
+                <label class="layui-form-label">
+                    收款状态
+                </label>
+                <div class="layui-input-inline">
+                    <select name="collection_status">
+                        <option value="0"> 未支付 </option>
+                        <option value="1"> 已支付 </option>
+                    </select>
+                    <!-- <input type="checkbox" name="collection_status" checked="" lay-skin="switch" lay-filter="switchTest" title="开关"> -->
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    客户经理
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="client_manager" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    业务人员
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="business_people" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    项目主管
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="project_director" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    项目顾问
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="project_consultant" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    客户联系人
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="customer_contact" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    客户付款人
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="customer_payer" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    寻访员
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="seeker" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    职位描述
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="job_description" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    行业
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="industry" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    适合职能
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="function" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    工作地点
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="work_place" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    招聘人数
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="recruits_number" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    外语要求
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="language" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    学历要求
+                </label>
+                <div class="layui-input-inline">
+                    <!-- <input class="layui-input" type="text" name="education" autocomplete="off" placeholder="请输入">
+                    </input> -->
+                    <select name="education">
+                        <option value=""> 请选择 </option>
+                        <option value="0"> 不限 </option>
+                        <option value="1"> 大专及以上 </option>
+                        <option value="2"> 本科及以上 </option>
+                        <option value="3"> 硕士及以上 </option>
+                        <option value="4"> 博士及以上 </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">
+                    公司ID
+                </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="text" name="com_id" autocomplete="off" placeholder="请输入" lay-verify="required">
+                </div>
+            </div>
+
+            <div class="layui-imput-block">
+                <button class="layui-btn" lay-submit="" lay-filter="submitDemo">立即提交</button>
+                <button class="layui-btn layui-btn-primary" type="reset">重置</button>
+            </div>
+        </div>
+    </form>
+
+    <script src="../../static/layui/layui.js"></script>
+    <script type="text/javascript">
+        layui.config({
+            base : '../../static/layui/mods/'
+        }).extend({});
+
+        layui.use(['form', 'layedit', 'laydate', 'ajax' , 'box'], function() {
+            var form = layui.form
+            ,layer   = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate
+            ,ajax    = layui.ajax
+            ,box     = layui.box;
+
+            // 日期
+            laydate.render({
+                elem: '#startDate'
+            });
+            laydate.render({
+                elem: '#planDate'
+            });
+
+            // 自定义验证规则
+            form.verify({
+
+            });
+
+            form.val("newProjectFrom", {
+            	"number":"JZ201823","name":"Airdoc","start_date":"2018-01-01","plan_date":"2019-01-01","project_status":"1","priority":"1","client_name":"\u656c\u671d2","collection_status":"0","client_manager":"\u656c\u671d","business_people":"\u656c\u671d","project_director":"\u656c\u671d","project_consultant":"\u656c\u671d","customer_contact":"\u656c\u671d","customer_payer":"\u656c\u671d","seeker":"\u656c\u671d","com_id":"1","job_description":"\u540e\u7aef\u7814\u53d1\u5de5\u7a0b\u5e08\n\u5de5\u4f5c\u804c\u8d23\uff1a\n \u8d1f\u8d23\u516c\u53f8api\u670d\u52a1\u540e\u7aef\u7684\u67b6\u6784\u8bbe\u8ba1\u548c\u7814\u53d1\n \u8d1f\u8d23\u5404\u5927\u533b\u9662\u5408\u4f5c\u9879\u76ee\u7684\u540e\u7aef\u7814\u53d1\u548c\u7ef4\u62a4\n \u8d1f\u8d23\u6570\u636e\u7684\u7ed3\u6784\u5316\u5165\u5e93","industry":"\u4e92\u8054\u7f51+\u5065\u5eb7\b,\u4eba\u5de5\u667a\u80fd","function":"\u8981\u6c42\uff1a\n \u8ba1\u7b97\u673a\u6216\u76f8\u5173\u4e13\u4e1a\u4e13\u79d1\u4ee5\u4e0a\u5b66\u5386\n \u719f\u6089Linux\/Unix\u5e73\u53f0\u73af\u5883\u7f16\u7a0b\n \u7cbe\u901aphp\u6216python\n \u7cbe\u901a\u81f3\u5c11\u4e00\u79cd\u6570\u636e\u5e93\uff0cmysql\u4f18\u5148\n \u719f\u6089\u5e38\u7528\u7b97\u6cd5\u548c\u6570\u636e\u7ed3\u6784\uff0c\u4e86\u89e3\u7f51\u7edc\u7f16\u7a0b\u3001\u591a\u7ebf\u7a0b\u7f16\u7a0b\u6280\u672f\n \u719f\u6089redis\/mongoDB\u4e4b\u4e00\uff0c\u5e76\u4e86\u89e3\u5927\u6982\u7684\u539f\u7406\n 2\u5e74\u53ca\u4ee5\u4e0a\u540e\u7aef\u670d\u52a1\u5668\u7aef\u5f00\u53d1\u7ecf\u9a8c\uff0c\u5bf9\u670d\u52a1\u5668\u7aef\u7a0b\u5e8f\u7684\u90e8\u7f72\u3001\u67b6\u6784\u3001\u8c03\u4f18\u6709\u4e00\u5b9a\u7684\u4e86\u89e3\n \u826f\u597d\u7684\u56e2\u961f\u5408\u4f5c\u7cbe\u795e\uff0c\u8f83\u5f3a\u7684\u6c9f\u901a\u80fd\u529b\n \u5584\u4e8e\u5b66\u4e60\u65b0\u7684\u77e5\u8bc6\uff0c\u52a8\u624b\u80fd\u529b\u5f3a\uff0c\u6709\u8fdb\u53d6\u5fc3\n \u6709\u5927\u8bbf\u95ee\u91cfWeb\u670d\u52a1\u67b6\u6784\u8bbe\u8ba1\u80fd\u529b\u548c\u7ecf\u9a8c\u8005\u4f18\u5148","work_place":"\u5317\u4eac\u5e02\b\u6d77\u6dc0\u533a\u4e2d\u5173\u6751\u667a\u9020\u5927\u8857A\u5ea7","recruits_number":"1","language":"\u82f1\u8bed4\u7ea7","education":"1"
+            });
+
+            // 监听指定开关
+            form.on('submit(submitDemo)', function(data) {
+                console.log(data.field);
+                ajax.ajax(
+                    'http://lingling.com/backstage/project/newproject', data.field, {},
+                    function(res) {
+                        if (res.code == 0) {
+                            // layer.msg('添加成功');
+                            box.box(res.msg, function() {
+                                location.href = 'list.html';
+                            });
+                        }
+                        else {
+                            console.log(res);
+                        }
+                    }
+                );
+                return false;
+            })
+        });
+    </script>
+</body>
+</html>

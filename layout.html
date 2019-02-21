@@ -37,16 +37,15 @@
             <!-- 个人信息 -->
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
-                    <a href="javascript:;">
+                    <a href="javascript:;" id="user_name">
                         <img src="static/images/avatar.jpg" class="layui-nav-img">
-                        共饮
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="">基本资料</a></dd>
                         <dd><a href="">安全设置</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a onclick="logout()">退了</a></li>
+                <li class="layui-nav-item"><a id="logoutBtn">退了</a></li>
             </ul>
         </div>
 
@@ -58,38 +57,42 @@
                         <a href="javascript:;">项目管理</a>
                         <dl class="layui-nav-child">
                             <dd><a href="html/project/list.html" target="common">项目列表</a></dd>
-                            <dd><a href="" target="common">添加项目</a></dd>
-                            <dd><a href="" target="common">项目修改</a></dd>
-                            <dd><a href="" target="common">项目查看</a></dd>
+                            <dd><a href="html/project/new.html" target="common">添加项目</a></dd>
+                            <dd><a href="html/project/my.html" target="common">我的项目</a></dd>
                         </dl>
                     </li>
 
                     <li class="layui-nav-item">
                         <a href="javascript:;">公司管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="html/project/list.html" target="common">公司列表</a></dd>
-                            <dd><a href="" target="common">添加项目</a></dd>
-                            <dd><a href="" target="common">项目修改</a></dd>
-                            <dd><a href="" target="common">项目查看</a></dd>
+                            <dd><a href="html/company/list.html" target="common">公司列表</a></dd>
+                            <dd><a href="html/company/new.html" target="common">添加公司</a></dd>
                         </dl>
                     </li>
 
                     <li class="layui-nav-item">
                         <a href="javascript:;">猎头管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="html/project/list.html" target="common">猎头列表</a></dd>
-                            <dd><a href="" target="common">添加项目</a></dd>
-                            <dd><a href="" target="common">项目修改</a></dd>
-                            <dd><a href="" target="common">项目查看</a></dd>
+                            <dd><a href="html/headhunter/list.html" target="common">猎头列表</a></dd>
+                            <dd><a href="" target="common">添加猎头</a></dd>
+                            <dd><a href="" target="common">修改猎头</a></dd>
+                        </dl>
+                    </li>
+
+                    <li class="layui-nav-item">
+                        <a href='javascript:;'>人才库管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="html/talent/list.html" target="common">人才库列表</a></dd>
+                            <dd><a href="html/talent/new.html" target="common">添加人才</a></dd>
                         </dl>
                     </li>
 
                     <li class="layui-nav-item">
                         <a href="javascript:;">系统设置</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="" target="common">添加项目</a></dd>
-                            <dd><a href="" target="common">项目修改</a></dd>
-                            <dd><a href="" target="common">项目查看</a></dd>
+                            <dd><a href="" target="common">域名设置</a></dd>
+                            <dd><a href="" target="common">设置</a></dd>
+                            <dd><a href="" target="common">设置</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -114,23 +117,31 @@
         }).extend({});
 
         layui.use(['element', 'table', 'ajax', 'box'], function() {
-            var ajax  = layui.ajax
-            ,box      = layui.box
-            ,table    = layui.table
-            ,element  = layui.element;
+            var $   = layui.jquery
+            ,ajax   = layui.ajax
+            ,box    = layui.box
+            ,table  = layui.table
+            ,element= layui.element;
 
             if (JSON.stringify(layui.data('user_info')) == '{}') {
                 box.box('请您登录', function() {
-                    location.href = 'layout.html';
+                    $.get("/backstage/headhunter/logout");
+                    layui.data('user_info', null);
+                    location.href = 'login.html';
                 });
+            }
+            else {
+                $('#user_name').append(layui.data('user_info').name);
             }
 
-            function logout() {
+            // 退出
+            $('#logoutBtn').on('click', function() {
+                $.get("/backstage/headhunter/logout");
                 layui.data('user_info', null);
                 box.box('成功退出', function() {
-                    location.href = 'layout.html';
+                    location.href = 'login.html';
                 });
-            }
+            });
         });
     </script>
 </body>

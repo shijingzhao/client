@@ -43,19 +43,19 @@
                 登录
             </div>
             <form class="layui-form">
-                <div class="layui-form-item">
+                <div class="layui-form-item" style="margin-left: 60px;">
                     <div class="layui-input-inline">
                         <input type="text" name="account" required lay-verify="required|phone" placeholder="请输入标题" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" style="margin-left: 60px;">
                     <div class="layui-input-inline">
                         <input type="password" name="password" required lay-verify="required|pass" placeholder="请填写6到12位密码" autocomplete="off" class="layui-input">
                     </div>
                 </div>
 
-                <div class="layui-form-item">
+                <div class="layui-form-item" style="margin-left: 60px;">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit lay-filter="formButton">立即提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
@@ -109,12 +109,12 @@
                                     value   : res.data.gender
                                 });
                             }
-                            box.box(res.message, function() {
+                            box.box(res.msg, function() {
                                 location.href = 'layout.html';
                             });
                         }
                         else {
-                            box.box(res.message, function() {
+                            box.box(res.msg, function() {
                                 location.href = 'layout.html';
                             });
                         }

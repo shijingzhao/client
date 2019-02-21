@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>项目列表</title>
+    <title>人才库列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -16,11 +16,13 @@
         <button class="layui-btn" data-type="isAll">验证是否全选</button>
     </div>
 
-    <table id="table" lay-filter="tableDemo"></table>
+    <table id="tableTanlent" lay-filter="tableDemo"></table>
 
     <script src="http://lingling.com/static/layui/layui.js"></script>
     <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
     <script type="text/javascript">
         layui.config({
@@ -40,8 +42,8 @@
 
             table.render({
                 id: 'row'
-                ,elem: '#table'
-                ,url: 'http://lingling.com/backstage/project/listProject'
+                ,elem: '#tableTanlent'
+                ,url: 'http://lingling.com/backstage/talent/list'
                 ,method: 'post'
                 ,contentType: 'application/json'
                 ,page: true
@@ -55,15 +57,20 @@
                 }
                 ,cols: [[
                     {type:'checkbox', fixed: 'left'}
-                    ,{field:'number', title: '编号'}
-                    ,{field:'name', title: '项目名称'}
-                    ,{field:'start_date', title: '开始时间'}
-                    ,{field:'plan_date', title: '计划结束时间'}
-                    ,{field:'project_status', title: '项目状态'}
-                    ,{field:'priority', title: '项目级别'}
-                    ,{field:'client_name', title: '客户名称'}
-                    ,{field:'collection_status', title: '收款状态'}
-                    ,{fixed:'right', width:80, align:'center', toolbar:'#barDemo', title: '操作'}
+                    ,{field:'name', title: '姓名'}
+                    ,{field:'gender', title: '性别'}
+                    ,{field:'phone', title: '手机'}
+                    ,{field:'mailbox', title: '邮箱'}
+                    ,{field:'address', title: '地址'}
+                    ,{field:'dream_position', title: '期望职位'}
+                    ,{field:'expected_salary', title: '期望薪资'}
+                    ,{field:'expected_city', title: '期望城市'}
+                    ,{field:'education', title: '学历'}
+                    ,{field:'working_years', title: '工作年限'}
+                    ,{field:'work_experience', title: '工作经历'}
+                    ,{field:'project_experience', title: '项目经历'}
+                    ,{field:'skill_list', title: '技能清单'}
+                    ,{fixed:'right', width:178, align:'center', toolbar:'#barDemo', title: '操作'}
                 ]]
             });
 

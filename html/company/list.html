@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>项目列表</title>
+    <title>公司列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -21,6 +21,8 @@
     <script src="http://lingling.com/static/layui/layui.js"></script>
     <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
     <script type="text/javascript">
         layui.config({
@@ -41,7 +43,7 @@
             table.render({
                 id: 'row'
                 ,elem: '#table'
-                ,url: 'http://lingling.com/backstage/project/listProject'
+                ,url: 'http://lingling.com/backstage/company/list'
                 ,method: 'post'
                 ,contentType: 'application/json'
                 ,page: true
@@ -55,15 +57,12 @@
                 }
                 ,cols: [[
                     {type:'checkbox', fixed: 'left'}
-                    ,{field:'number', title: '编号'}
-                    ,{field:'name', title: '项目名称'}
-                    ,{field:'start_date', title: '开始时间'}
-                    ,{field:'plan_date', title: '计划结束时间'}
-                    ,{field:'project_status', title: '项目状态'}
-                    ,{field:'priority', title: '项目级别'}
-                    ,{field:'client_name', title: '客户名称'}
-                    ,{field:'collection_status', title: '收款状态'}
-                    ,{fixed:'right', width:80, align:'center', toolbar:'#barDemo', title: '操作'}
+                    ,{field:'com_name', title: '公司名称'}
+                    ,{field:'com_contact', title: '联系人'}
+                    ,{field:'com_tel', title: '联系方式'}
+                    ,{field:'nature', title: '公司性质'}
+                    ,{field:'introduction', title: '公司简介'}
+                    ,{fixed:'right', width:178, align:'center', toolbar:'#barDemo', title: '操作'}
                 ]]
             });
 
